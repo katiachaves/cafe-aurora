@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Café Aurora</title>
+    <link rel="shortcut icon" href="imagens/iconeAurora.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="/CSS/base.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
+    <link rel="stylesheet" href="/CSS/secoes.css">
+    <link rel="stylesheet" href="/CSS/responsivo.css">
+   
+    <script src="script.js" defer></script>
+ </head>
+ <body>
+
+   
+<!-- NAVBAR -->
+   <header>
+     <nav id="nav">
+       <a href="#inicio" class="icone">
+         <img src="imagens/iconeAurora.png" alt="ICONE CAFÉ AURORA">
+       </a>         
+       <div class="links linksSome">
+         <a href="#inicio">  
+           <button>
+             <i class="fa fa-home" aria-hidden="true"></i>
+             <p>Inicio</p>
+           </button>
+         </a>  
+         <a href="#sobre">  
+           <button>
+             <i class="fa-solid fa-magnifying-glass"></i>
+             <p>Sobre</p>
+           </button>
+         </a>
+         <a href="#cardapio">    
+           <button>
+             <i class="fa fa-cutlery" aria-hidden="true"></i>
+             <p>Cardápio</p>
+           </button>
+         </a>
+         <a href="#contato"> 
+           <button>
+             <i class="fa fa-address-book" aria-hidden="true"></i>
+             <p>Contato</p>
+           </button>
+         </a> 
+       </div>
+         <button class="bNav"><i class="fa fa-bars" aria-hidden="true"></i></button>
+     </nav>
+   </header>
+   <main>
+
+
+<!-- INÍCIO -->
+     <section id="inicio"> 
+       <picture class="cafeAurora">
+         <source media="(max-width: 767px)" srcset="/imagens/cafeAuroraCelular.webp" type="image/webp">
+         <img src="imagens/cafeAuroraPc.webp" alt="CAFÉ AURORA">
+       </picture>
+       <div class="textoDeEntrada">
+         <img src="imagens/iconeAuroraRosa.svg" class="iXicara" alt="ICONE XÍCARA">  
+         <p>Desperte com a luz de um novo dia. No Café Aurora, cada xícara traz o calor do amanhecer, com grãos selecionados e receitas artesanais feitas para iluminar a sua rotina.</p>
+         
+         <a href="#cardapio">
+          <button>VER<br>CARDÁPIO</button> 
+         </a>
+       </div>
+       <div class="cafeGrupo"> 
+         <img src="/imagens/cafeComAmigos.jpg" alt="CAFÉ EM GRUPO">
+       </div>
+     </section>
+
+
+<!-- SOBRE -->
+     <section id="sobre" class="centralizar">
+       <h2>Sobre</h2>
+       <p>Inspirado nas primeiras horas da manhã, o Café Aurora nasceu para transformar o seu despertar em um ritual de sabor e conforto. Trabalhamos com grãos de torra artesanal de pequenos produtores e preparamos tudo fresco para acompanhar o melhor momento do seu dia. Nosso espaço une claridade, aconchego e aquele aroma inconfundível de café recém-coado que faz você querer desacelerar.</p>
+     </section>
+
+
+<!-- CARDÁPIO -->
+     <section id="cardapio" class="centralizar">
+       <h2>Cardápio</h2>
+       <div class="cardapioCaixa" class="centralizar">
+         <div class="items">
+           <div class="carrosel">     
+             <div   class="item">    <img src="/imagens/expresso.jpg" alt="EXPRESSO CLÁSSICO">
+             <h3>Espresso Clássico</h3>
+             <p>Extração curta com notas de chocolate amargo e crema aveludada.</p>
+           <p class="preco">R$ 8,00</p>
+           </div>
+             
+             <div class="item">       
+             <img src="/imagens/capuccino.jpg" alt="CAPUCCINO CREMOSO">
+             <h3 class="ajusteTitulo">Capuccino Cremoso</h3>
+             <p>Café espresso com leite vaporizado e uma camada generosa de cacau em pó.</p>
+             <p class="preco">R$ 14,00</p>
+           </div>
+             
+             <div class="item">       
+             <img src="imagens/latteGelado.jpg" alt="LATTE GELADO COM BAUNILHA">
+             <h3>Latte Gelado com Baunilha</h3>
+             <p>Espresso batido com leite gelado, gelo e um toque de xarope artesanal de baunilha.</p>
+             <p class="preco">R$ 16,00</p>
+           </div>
+             
+             <div class="item">      
+             <img src="imagens/paoDeQueijo.jpg" alt="PÃO DE QUEIJO ARTESANAL">
+             <h3>Pão de Queijo Artesanal</h3>
+             <p>Receita tradicional mineira com queijo curado, crocante por fora e macio por dentro.</p>
+             <p class="preco">R$ 7,00</p>
+           </div>
+             
+             <div class="item">       
+             <img src="imagens/boloDeCenoura.jpg" alt="BOLO DE CENOURA COM CHOCOLATE">
+             <h3>Bolo de Cenoura com Chocolate</h3>
+             <p>Fatia fofinha de bolo caseiro com cobertura cremosa de chocolate meio amargo.</p>
+             <p class="preco">R$ 11,00</p>
+           </div>
+             
+             <div class="item">      
+             <img src="imagens/toastDeAbacate.jpg" alt="TOAST DE ABACATE">
+             <h3>Toast de Abacate</h3>
+             <p>Pão rústico de fermentação natural com pasta de abacate fresco, limão e ovo poché.</p>
+             <p class="preco">R$ 18,00</p>
+           </div>
+             
+         </div>
+         <div class="bsCardapio">
+            <button class="anterior"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="proximo"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+       </div>
+     </section>
+
+
+<!-- CONTATO -->
+     <section id="contato" class="centralizar">   <h2 class="h2Contato">Contato</h2>
+         <form action="/contato" method="post">
+           <label for="nome">Nome</label>
+           <input type="text" id="nome" name="nome" required><br>
+         
+           <label for="email">E-mail</label>
+           <input type="email" id="email" name="email" required><br>
+         
+           <label for="men">Mensagem</label>
+           <textarea id="men" name="men" required></textarea><br>
+
+           <button type="submit" class="btnEnviar">Enviar</button>
+       </form> 
+       <div class="avisoContato" role="status" aria-live="polite" hidden></div>
+     </section>
+   </main>
+
+
+<!-- FOOTER -->
+   <footer>
+     <p>© 2026 Café Aurora</p>
+   </footer>
+ </body>
+</html>

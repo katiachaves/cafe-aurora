@@ -1,0 +1,206 @@
+@media screen and (min-width: 768px) {
+
+  html {
+    scroll-padding-top: 45px;
+  }
+
+  h3 {
+    font-size: 40px;
+  }
+  
+
+  /* NAVBAR */
+
+  #nav {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .linksSome {
+    display: none;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+  }
+  
+  .links > a {
+    width: 140px;
+    text-decoration: none;
+    flex: auto;
+  }
+
+  .links > a > button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bNav {
+    display: none;
+  }
+  
+
+  /* INÍCIO */
+
+  #inicio {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 400px 550px;
+  }
+
+  .cafeAurora {
+    grid-area: 1/1/2/3;
+    height: 400px;
+  }
+
+  .textoDeEntrada {
+    grid-area: 2/1/3/2;
+    height: 550px;
+  }
+
+  .textoDeEntrada > p {
+    width: 60%;
+  }
+
+  .cafeGrupo {
+    grid-area: 2/2/3/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+  }
+
+  .cafeGrupo > img {
+    height: 80%;
+    width: 80%;
+  }
+
+  .cafeGrupo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    height: 82%;
+    width: 82%;
+    top: 55px;
+    left: 40px;
+
+    background: linear-gradient(to bottom, var(--preto), transparent 45%), 
+    linear-gradient(to top, var(--preto), transparent 70%), 
+    linear-gradient(to right, var(--preto), transparent 45%), 
+    linear-gradient(to left, var(--preto), transparent 45%);
+  }
+  
+
+  /* SOBRE */
+
+  #sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  #sobre > p {
+    width: 80%;
+    padding-right: 110px;
+    padding-left: 110px;
+  }
+  
+
+  /* CARDÁPIO */
+  
+  #cardapio {
+    margin-top: 0px;
+  }
+
+  .cardapioCaixa {
+    margin-top: 40px;
+  }
+  
+  .items {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 85% 8%;
+    justify-items: stretch;
+    align-content: center;
+  }
+
+  .carrosel {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0 21px;
+    gap: 21px;
+    box-sizing: border-box;
+  }
+
+  .item {
+    box-sizing: border-box;
+    flex: 0 0 calc((100% - 42px) / 3);
+    min-width: 0;
+    height: 100%;
+    margin-left: 0;
+  }
+
+  .item > img {
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .item > .ajusteTitulo {
+    font-size: 38px;
+  }
+
+  .bsCardapio {
+    grid-area: 2 / 1 / 3 / 2;
+    height: 100%;
+    justify-self: center;
+  }
+
+
+  /* CONTATO */
+
+  .h2contato {
+    gap: 20px;
+  }
+
+  .h2contato::before, 
+  .h2contato::after {
+    width: 100px;
+  }
+  
+  form {
+    width: 50%;
+  }
+
+  form > input, 
+  form > textarea {
+    height: 40px;
+  }
+
+  form > textarea {
+    min-height: 40px;
+  }
+
+  form > button {
+    width: 90px;
+    height: 45px;
+  }
+}
