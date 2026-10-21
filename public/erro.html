@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ops! - Café Aurora</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000');
+    
+    * {
+      box-sizing: border-box;
+      font-family: "Dm Sans", Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --amarelo: #E5BD22;
+      --marrom: #372E15;
+      --preto: #0D0D0D;
+      --rosa: #B78B78;
+      --bege: #E5D2BF;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--bege);
+      color: var(--marrom);
+    }
+
+    .caixaErro {
+      width: 100%;
+      max-width: 500px;
+      padding: 40px 25px;
+      text-align: center;
+      background-color: white;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px #372E1525;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 1000;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btnVoltar {
+      display: inline-block;
+      padding: 14px 24px;
+      background-color: var(--amarelo);
+      color: var(--preto);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btnVoltar:hover {
+      background-color: var(--amarelo);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="caixaErro">
+    <h1>Ops! Algo deu errado.</h1>
+
+    <p id="mensagemErro">
+      Ocorreu um erro inesperado. Tente novamente.
+    </p>
+
+    <a class="btnVoltar" href="/" onclick="event.preventDefault(); window.location.replace('/')">
+      Voltar para o Café Aurora
+    </a>
+  </main>
+
+  <script>
+    const parametros = new URLSearchParams(
+    window.location.search
+    );
+
+    const tipoErro = parametros.get('tipo');
+    const mensagem = document.getElementById('mensagemErro');
+
+    const mensagens = {
+      servidor: 'Ocorreu um problema no servidor. Tente novamente mais tarde.',
+      tamanho: 'Os dados enviados são muito grandes. Revise o formulário e tente novamente.',
+      formulario: 'Não foi possível processar o formulário. Confira os dados e tente novamente.',
+      limite: 'Você realizou muitas tentativas de envio. Aguarde 15 minutos antes de tentar novamente.',
+  };
+
+    mensagem.textContent =
+      mensagens[tipoErro] || mensagens.servidor;
+  </script>
+</body>
+</html>

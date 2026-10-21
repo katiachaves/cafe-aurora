@@ -4,6 +4,44 @@
   background-color: var(--preto);
 }
 
+.avisoContato.sucesso {
+  position: absolute;
+  width: 90%;
+  background-color: var(--amarelo);
+  color: var(--preto);
+  top: 10px;
+  left: 5%;
+  box-shadow: 0px 0px 50px var(--preto);
+}
+
+.avisoContato.sucesso::before{
+  font-family: "Font Awesome 6 Free";
+  content: "\f00c";
+  font-size: 19px;
+  font-weight: 900;
+  color: rgba(10,127,10,1);
+  margin: 0px 8px 0px 8px;
+}
+
+.avisoContato.erro {
+  position: absolute;
+  width: 90%;
+  background-color: var(--rosa);
+  color: var(--preto);
+  top: 10px;
+  left: 5%;
+  box-shadow: 0px 0px 50px var(--preto);
+}
+
+.avisoContato.erro::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f12a";
+  font-size: 19px;
+  font-weight: 900;
+  color: rgba(150,15,15,1);
+  margin: 0px 8px 0px 8px;
+}
+
 .cafeAurora {
   height: 700px;
   position: relative;
@@ -183,6 +221,7 @@
   margin-left: 21px;
   border: 2px solid var(--bege);
   border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(55,46,21,0.100);
 }
 
 .item > h3, 
@@ -222,6 +261,7 @@
 .proximo > i, .anterior > i {
   font-size: 40px;
   color: var(--marrom);
+  text-shadow: 3px 3px 5px rgba(55,46,21,0.120);
 }
 
 .proximo > i:active, .anterior > i:active {
@@ -270,6 +310,9 @@ form > input,
 form > textarea {
   border: 1px solid var(--marrom);
   height: 30px;
+  padding: 5px;
+  font-size: 18px;
+  box-shadow: 3px 3px 5px rgba(55,46,21,0.100);
 }
 
 form > textarea {
@@ -277,6 +320,16 @@ form > textarea {
   max-height: 200px;
   resize: vertical;
 }
+
+
+.campoVerificacao {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 
 form > button {
   width: 80px;
@@ -286,6 +339,12 @@ form > button {
   font-weight: bold;
   border: 1px solid var(--marrom);
   color: var(--marrom);
+  box-shadow: 3px 3px 5px rgba(55,46,21,0.120);
+}
+
+form > button:active {
+  width: 75px;
+  height: 30px;
 }
 
 
@@ -293,16 +352,4 @@ form > button {
   padding: 12px;
   margin-bottom: 15px;
   border-radius: 8px;
-}
-
-.avisoContato.sucesso {
-  background-color: var(--amarelo);
-  color: var(--preto);
-  border: 2px solid var(--preto);
-}
-
-.avisoContato.erro {
-  background-color: var(--preto);
-  color: var(--amarelo);
-  border: 2px solid var(--amarelo);
 }

@@ -24,7 +24,7 @@
        <a href="#inicio" class="icone">
          <img src="imagens/iconeAurora.png" alt="ICONE CAFÉ AURORA">
        </a>         
-       <div class="links linksSome">
+       <div class="links">
          <a href="#inicio">  
            <button>
              <i class="fa fa-home" aria-hidden="true"></i>
@@ -59,6 +59,7 @@
 <!-- INÍCIO -->
      <section id="inicio"> 
        <picture class="cafeAurora">
+         <div class="avisoContato" role="status" aria-live="polite" hidden></div>
          <source media="(max-width: 767px)" srcset="/imagens/cafeAuroraCelular.webp" type="image/webp">
          <img src="imagens/cafeAuroraPc.webp" alt="CAFÉ AURORA">
        </picture>
@@ -151,9 +152,17 @@
            <label for="men">Mensagem</label>
            <textarea id="men" name="men" required></textarea><br>
 
+           
+           <div class="campoVerificacao" aria-hidden="true">
+             <label for="site">Não preencha este campo</label>
+             <input
+             type="text" id="site" name="site" tabindex="-1"autocomplete="off">
+           </div>
+
+           
            <button type="submit" class="btnEnviar">Enviar</button>
        </form> 
-       <div class="avisoContato" role="status" aria-live="polite" hidden></div>
+       
      </section>
    </main>
 
