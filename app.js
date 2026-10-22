@@ -2,13 +2,15 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+app.set('trust proxy', 1);
 const Contato = require('./models/Contato');
 const session = require('express-session');
 const flash = require('connect-flash');
-const nodemailer = require('nodemailer');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 const { MongoStore } = require('connect-mongo');
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 //CONFIG
@@ -28,8 +30,8 @@ async function iniciarServidor() {
   const variaveisObrigatorias = [
     'MONGODB_URI',
     'SESSION_SECRET',
-    'EMAIL_USER',
-    'EMAIL_PASS'
+    'EMAIL_USER', 
+    'RESEND_API_KEY'
   ];
 
   const faltando = variaveisObrigatorias.filter(
@@ -93,20 +95,6 @@ app.use(session({
 app.use(flash());
 
 app.use(express.static(path.join(__dirname,'public')));
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
-transporter.verify().then(() => {
-  console.log('Conexão com o Gmail configurada!');
-}).catch((erro) => {
-  console.error('Erro ao conectar ao Gmail:', erro.message);
-});
 
 
 //ROTAS
@@ -177,28 +165,34 @@ app.post('/contato', limiteContato, async (req, res) => {
     return res.redirect('/')
   };
 
-  // 2. Enviar o e-mail pelo Gmail
+  // 2. Enviar o e-mail pelo Resend
 
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+    const { data, error } = await resend.emails.send({
+      from: 'Café Aurora <onboarding@resend.dev>',
+      to: [process.env.EMAIL_USER],
       replyTo: email.trim(),
       subject: 'Nova mensagem - Café Aurora',
       text: `Nome: ${nome.trim()}\nE-mail: ${email.trim()}\n\nMensagem:\n${men.trim()}`
     });
+    if (error) {
+    throw new Error(error.message);
+    } 
+    
+    console.log('E-mail enviado pelo Resend:', data.id);
+    
   } catch (erro) {
-    console.error('Erro ao enviar o e-mail:', erro);
+    console.error('Erro ao enviar o e-mail:', erro.message);
     
     req.flash('erro', 'Sua mensagem foi salva mas não foi possível enviar o e-mail. Tente novamente mais tarde.');
-
+    
     return res.redirect('/')
   }
-
-    // 3. As duas operações deram certo
+  // 3. As duas operações deram certo
   
-    req.flash('sucesso', 'Mensagem enviada com sucesso!');
-    return res.redirect('/');
+  req.flash('sucesso', 'Mensagem enviada com sucesso!');
+  
+  return res.redirect('/');
 });
 
 
