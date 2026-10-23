@@ -36,13 +36,16 @@
   .links > a > button {
     height: 100%;
     width: 100%;
-    border: none;
     color: white;
     background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  .links > a:not(:last-child) button {
+  border-bottom: none;
   }
 
   .links > a > button > i {
