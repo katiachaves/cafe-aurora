@@ -85,7 +85,10 @@ console.log("Item:", itens[0].offsetWidth)
 console.log("Margem:", getComputedStyle(itens[0]).marginLeft)
 
 
+
+//NAVBAR
 let animando = false;
+let temporizadorNavbar;
 
 bNav.addEventListener("click", () => {
   if (animando) return;
@@ -131,7 +134,7 @@ bNav.addEventListener("click", () => {
     nav.style.height = "45px";
 
     // Esperar a navbar terminar de diminuir
-    setTimeout(() => {
+    temporizadorNavbar = setTimeout(() => {
       nav.style.gridTemplateRows = "45px";
       nav.style.gridArea = "1/1/2/5";
       links.style.transform = "translateY(100%)";
@@ -149,30 +152,42 @@ bNav.addEventListener("click", () => {
 
 
 
+function ajustarNavbar() {
+  if (window.matchMedia("(min-width: 768px)").matches) {
 
-//NAVBAR
+    clearTimeout(temporizadorNavbar);
+    // Limpar estilos aplicados pelo JavaScript
+    nav.style.removeProperty("height");
+    nav.style.removeProperty("grid-template-rows");
+    nav.style.removeProperty("grid-area");
+    nav.style.removeProperty("transition");
 
-/*bNav.addEventListener("click", () => {
-  if (getComputedStyle(nav).height == "45px" || nav.style.height == "45px") {
+    links.style.removeProperty("transform");
 
-    nav.style.gridTemplateRows = "45px 150px";
-    nav.style.gridArea = "1/1/3/5";
-    
-    nav.style.height = "195px";
-    links.style.transform = "translateY(0%)";
-    nav.style.transition = "height 0.8s";
-  } 
-  else if (nav.style.height == "195px") {
+    html.style.removeProperty("scroll-padding-top");
+    html.style.removeProperty("transition");
 
-    nav.style.gridTemplateRows = "45px";
-    nav.style.gridArea = "1/1/2/5";
-    
-    nav.style.height = "45px";
-    links.style.transform = "translateY(100%)";
-    nav.style.transition = "height 0.8s";
+    main.style.removeProperty("padding-top");
+    main.style.removeProperty("transition");
+
+    // Restaurar os links
+    links.querySelectorAll("a").forEach((link) => {
+      link.style.removeProperty("opacity");
+      link.style.removeProperty("transform");
+      link.style.removeProperty("transition");
+    });
+
+    animando = false;
   }
-})
-*/
+}
+
+window.addEventListener("resize", ajustarNavbar);
+window.addEventListener("orientationchange", ajustarNavbar);
+
+ajustarNavbar();
+
+
+
 
 const linksNavegacao = document.querySelectorAll(
   'a[href^="#"]'
